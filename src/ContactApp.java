@@ -44,6 +44,9 @@ public class ContactApp {
                     searchForContact(searchTerm);
                     break;
                 case 4:
+                    System.out.println("What is the first name of the contact you want to delete?");
+                    String deleteContact = sc.next();
+                    deleteContact(deleteContact);
                     break;
                 case 5:
                     System.exit(1);
@@ -95,6 +98,24 @@ public class ContactApp {
         }
     }
 
+    public static void deleteContact(String firstName) {
+        Path filepath = Paths.get("data", "contacts.txt");
+        List<String> lines;
+        List<String> updatedContacts = new ArrayList<>();
 
+        try {
+            lines = Files.readAllLines(filepath);
+            for (String line : lines) {
+                if (line.contains(firstName)) {
+                    updatedContacts.add("");
+                    continue;
+                }
+                updatedContacts.add(line);
+            }
+            Files.write(Paths.get("data", "contacts.txt"), updatedContacts);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
