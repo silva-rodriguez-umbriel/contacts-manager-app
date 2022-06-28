@@ -39,6 +39,9 @@ public class ContactApp {
                     showContacts();
                     break;
                 case 3:
+                    System.out.println("What is the first name?");
+                    String searchTerm = sc.next();
+                    searchForContact(searchTerm);
                     break;
                 case 4:
                     break;
@@ -52,7 +55,6 @@ public class ContactApp {
     public static void showContacts(){
         Path filepath = Paths.get("data", "contacts.txt");
         List<String> lines;
-        List<Contact> contacts = new ArrayList<>();
         try {
             lines = Files.readAllLines(filepath);
             for(String line: lines){
@@ -69,6 +71,26 @@ public class ContactApp {
         try {
             Files.write(filepath, Arrays.asList(contactEntry), StandardOpenOption.APPEND);
         }catch(IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void searchForContact(String firstName){
+        Path filepath = Paths.get("data", "contacts.txt");
+        List<String> lines;
+        String result = "";
+        try {
+            lines = Files.readAllLines(filepath);
+            for(String line: lines){
+                if(!line.contains(firstName)){
+                    System.out.println("Contact is not in database");
+                }
+                result = line;
+                System.out.println("Contact found: ");
+                System.out.println(result + "\n");
+                break;
+            }
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
