@@ -62,7 +62,7 @@ public class ContactApp {
         try {
             lines = Files.readAllLines(filepath);
             for(String line: lines){
-                System.out.printf("%s%n", line);
+                System.out.printf("%s %n", line);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
