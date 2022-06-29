@@ -85,11 +85,12 @@ public class ContactApp {
             for(String line: lines){
                 if(!line.contains(firstName)){
                     System.out.println("Contact is not in database");
+                }else {
+                    result = line;
+                    System.out.println("Contact found: ");
+                    System.out.println(result + "\n");
+                    break;
                 }
-                result = line;
-                System.out.println("Contact found: ");
-                System.out.println(result + "\n");
-                break;
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
