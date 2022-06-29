@@ -25,11 +25,9 @@ public class ContactApp {
                     "5. Exit.\n" +
                     "Enter an option (1, 2, 3, 4 or 5):");
             int response = sc.nextInt();
-            switch(response){
-                case 1:
-                    showContacts();
-                    break;
-                case 2:
+            switch (response) {
+                case 1 -> showContacts();
+                case 2 -> {
                     System.out.println("What is the first name?");
                     String first = sc.next();
                     System.out.println("What is the last name?");
@@ -38,19 +36,18 @@ public class ContactApp {
                     String phone = sc.next();
                     addContact(first, last, phone);
                     showContacts();
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("What is the first name?");
                     String searchTerm = sc.next();
                     searchForContact(searchTerm);
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     System.out.println("What is the first name of the contact you want to delete?");
                     String deleteContact = sc.next();
                     deleteContact(deleteContact);
-                    break;
-                case 5:
-                    System.exit(1);
+                }
+                case 5 -> flag = false;
             }
         }
 
