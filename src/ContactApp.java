@@ -16,7 +16,8 @@ public class ContactApp {
         Scanner sc = new Scanner(System.in);
 
         while(flag){
-            System.out.println("Welcome To Contact Manager App\n" +
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n" +
+                            "Welcome To Contact Manager App\n" +
                     "1. View contacts.\n" +
                     "2. Add a new contact.\n" +
                     "3. Search a contact by name.\n" +
